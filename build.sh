@@ -14,3 +14,8 @@ while IFS="" read -r p || [ -n "$p" ]; do
   rm tmp
   FROM=$p
 done < ../TAGS
+
+cd ..
+git add .
+git commit -am "Update"
+git push
