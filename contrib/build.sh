@@ -10,7 +10,7 @@ FROM=master
 while IFS="" read -r p || [ -n "$p" ]; do
   FILE=../PATCH_${p}_${FROM}
   git log --pretty=oneline ^${p} ${FROM} | cut -d' ' -f1 > tmp
-  sed -e 's#^#https://code.vtiger.com/vtiger/vtigercrm/commit/#' tmp > "$FILE"
+  sed -e 's#^#https://code.vtiger.com/vtiger/vtigercrm/commit/#' tmp | sort > "$FILE"
   rm tmp
   FROM=$p
 done < ../TAGS
